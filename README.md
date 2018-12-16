@@ -1,5 +1,5 @@
 # tower_defence
 
-# required libs:
-  pygame
-  inject 
+ __required libs__:
+  1) pygame
+  2) inject
