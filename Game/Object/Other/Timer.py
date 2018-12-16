@@ -1,5 +1,6 @@
 from Game.Action.Infrastructer.IGameActionHolder import IGameActionHolder
 from Game.Action.Other.EmptyAction import EmptyAction
+from Game.Action.Other.RemoveTimerFromTracker import RemoveTimerFromTracker
 from Game.Action.Other.TimerAction import TimerAction
 from Game.Object.Infrastructer.ITimer import ITimer
 
@@ -15,5 +16,5 @@ class Timer(ITimer, IGameActionHolder):
         if self.time > 0:
             return [TimerAction(self)]#timer action
         else:
-            return [EmptyAction()]
+            return [RemoveTimerFromTracker(self)]
 

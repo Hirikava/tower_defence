@@ -1,2 +1,5 @@
 args:
 0 - time_span for update time objects
+1 - monster set
+2 - tower set
+3 - timer set
