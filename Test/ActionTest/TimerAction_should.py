@@ -13,6 +13,6 @@ class TimerActionTest(unittest.TestCase):
     def test_ActionWillNotDownTimerBelowZeroIfUpdateAction(self):
         timer = Timer(100)
         for i in range (0,110):
-            action = timer.get_actions()[0]
-            action.act(1,[],[],[timer])
+            for action in timer.get_actions():
+                action.act(1,[],[],[timer])
         self.assertEqual(0,timer.get_time())
