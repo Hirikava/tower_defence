@@ -3,4 +3,9 @@ args:
 1 - monsters set
 2 - towers set
 3 - timers set
-4 - game life counter 
+4 - game_session
+
+
+bestiariy:
+0 - hp
+1 - speed

@@ -8,7 +8,6 @@ class EndTimeAction(Timer):
         Timer.__init__(self,time_in_milliseconds=time_in_milliseconds)
         self.__inner_action_holder__ = inner_action_holer
 
-    @property
     def get_actions(self):
         if self.get_time() > 0:
             return [TimerAction(self)]

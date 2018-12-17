@@ -1,6 +1,6 @@
 import unittest
 from Game.Action.Other.EmptyAction import EmptyAction
-from Game.Object.Other.EndTimeAction import EndTimeAction
+from Game.Action.Other.EndTimeAction import EndTimeAction
 
 
 class EndTimerActionTest(unittest.TestCase):

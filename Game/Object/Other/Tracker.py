@@ -10,4 +10,5 @@ class Tracker():
         self.__set__.remove(element)
 
     def __iter__(self):
-        return self.__set__.__iter__()
+        set = self.__set__.copy()
+        return  set.__iter__()

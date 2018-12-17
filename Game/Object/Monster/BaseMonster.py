@@ -3,9 +3,10 @@ from Game.Object.Infrastructer.BaseObject import BaseObject
 
 
 class BaseMonster(BaseObject):
-    def __init__(self,cords,speed):
+    def __init__(self,cords,hp,speed):
         BaseObject.__init__(self,cords)
         self.speed = speed
+        self.hp = hp
 
     def move_to(self,pos,time_span):
         vector = geometry.normalize_vector(geometry.get_direction_vector(self.cords,pos))
