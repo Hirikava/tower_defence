@@ -1,5 +1,5 @@
 from Game.Action.Infrastructer.IGameAction import IGameAction
-from Game.Action.Monster.monster_bestiariy import get_monster_stats
+from Game.Object.Monster.monster_bestiariy import get_monster_stats
 
 
 class SpawnMonsterAction(IGameAction):

@@ -3,12 +3,10 @@ from Game.Action.Monster.SpawnMonsterAction import SpawnMonsterAction
 from Game.Action.Other.EndTimeAction import EndTimeAction
 from Game.GameLoader import GameLoader
 from Game.Object.Other.Tracker import Tracker
+from Game.Object.Tower.TargetTower import TargetTower
 from Settings.GameSessionSetingsProvider import IGameSessionSettingsProvider
 from Time.Clock import Clock
 import inject
-
-
-
 
 
 class GameSession(IGameActionHolder):
@@ -20,6 +18,9 @@ class GameSession(IGameActionHolder):
         self.__track_monster_spawn__(game_scenario)
         settings = inject.instance(IGameSessionSettingsProvider)().get_settings()
         self.min_time_delay = int(settings['min_time_delay'])
+
+        #TEST
+        self.args[2].add(TargetTower((100,300),400,1500))
 
     def run(self):
         self.clock.tick()

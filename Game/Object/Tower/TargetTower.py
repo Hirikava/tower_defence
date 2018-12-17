@@ -1,3 +1,4 @@
+from Game.Action.Infrastructer.IGameAction import IGameAction
 from Game.Action.Infrastructer.IGameActionHolder import IGameActionHolder
 from Game.Action.Other.TimerAction import TimerAction
 from Game.Action.Tower.SearchMonsterTargetAction import SearchMonsterTargetAction
@@ -16,7 +17,13 @@ class TargetTower(BaseTower, IGameActionHolder):
             return [SearchMonsterTargetAction(self),TimerAction(timer=self.cooldown_timer)]
         elif self.cooldown_timer.elipsed_time == 0:
             self.cooldown_timer = self.cooldown_timer.time
-            return [] #AtackAction
+            return [SimpleAttackAction(self.target,5)] #AtackAction
         else:
             return [TimerAction(self.cooldown_timer)] #TimerAction
 
+class SimpleAttackAction(IGameAction):
+    def __init__(self,base_monster,dmg):
+        self.__target__ = base_monster
+        self.dmg = dmg
+    def act(self,*args):
+        self.__target__ -= self.dmg
