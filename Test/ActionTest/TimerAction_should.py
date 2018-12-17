@@ -14,5 +14,5 @@ class TimerActionTest(unittest.TestCase):
         timer = Timer(100)
         for i in range (0,110):
             action = timer.get_actions()[0]
-            action.act(1)
+            action.act(1,[],[],[timer])
         self.assertEqual(0,timer.get_time())

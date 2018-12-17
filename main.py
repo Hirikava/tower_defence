@@ -1,6 +1,9 @@
+from init import init
+from Game.GameSession import GameSession
 from Game.Object.Other.Timer import Timer
 
-timer = Timer(500)
-actor = timer.get_actions()[0]
-actor.act(50)
-print(timer.get_time())
+
+init()
+game_session = GameSession()
+game_session.run()
+print(game_session.args[0])

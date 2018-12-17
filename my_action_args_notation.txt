@@ -1,5 +1,6 @@
 args:
 0 - time_span for update time objects
-1 - monster set
-2 - tower set
-3 - timer set
+1 - monsters set
+2 - towers set
+3 - timers set
+4 - game life counter 

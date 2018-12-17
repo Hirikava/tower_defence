@@ -1,5 +1,7 @@
 from Game.Action.Infrastructer.IGameActionHolder import IGameActionHolder
 from Game.Action.Monster.MoveAction import MoveAction
+from Game.Action.Monster.ReduceLifeCounter import ReduceLifeCounter
+from Game.Action.Monster.RemoveMonsterFromTracker import RemoveMonsterFromTracker
 from Game.Object.Monster.BaseMonster import BaseMonster
 
 class TrackedMonster(BaseMonster, IGameActionHolder):
@@ -11,7 +13,7 @@ class TrackedMonster(BaseMonster, IGameActionHolder):
 
     def get_actions(self):
         if self.track_counter == len(self.track):
-            pass #Game Action if Monster Will Ends Track
+            return [RemoveMonsterFromTracker(self),ReduceLifeCounter()]
         else:
             return [MoveAction(self)]
 

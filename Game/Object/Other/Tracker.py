@@ -1,6 +1,6 @@
 
 class Tracker():
-    def __int__(self):
+    def __init__(self):
         self.__set__ = set()
 
     def add(self,element):

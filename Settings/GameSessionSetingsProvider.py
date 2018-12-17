@@ -1,8 +1,10 @@
 import abc
 import inject
 
-from SettingsReader import ISettingsReader
+from Settings.SettingsReader import ISettingsReader
 
+def game_session_settings_config(binder):
+    binder.bind(IGameSessionSettingsProvider,GameSessionSettingsProvider)
 
 class IGameSessionSettingsProvider():
     @abc.abstractmethod
@@ -15,7 +17,7 @@ class GameSessionSettingsProvider(IGameSessionSettingsProvider):
         self.reader = inject.instance(ISettingsReader)()
 
     def get_settings(self):
-        self.reader.read('game_session_settings.ini')
+        return self.reader.read('game_session_settings.ini')
 
 
 

@@ -9,7 +9,7 @@ class Clock(IClock):
         self.__clock__.tick()
 
     def get_time(self):
-        self.__clock__.get_time()
+        return self.__clock__.get_time()
 
     def delay(self,time_span):
         pygame.time.delay(time_span)
