@@ -6,6 +6,9 @@ class Tracker():
     def add(self,element):
         self.__set__.add(element)
 
+    def contains(self,element):
+        return self.__set__.__contains__(element)
+
     def remove(self,element):
         self.__set__.remove(element)
 

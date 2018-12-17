@@ -8,4 +8,4 @@ class TimerAction(IGameAction):
     def act(self,*args):
         self.__target__.elipsed_time -= args[0]
         if self.__target__.elipsed_time < 0:
-            self.__target__.elipsed_time == 0
+            self.__target__.elipsed_time = 0

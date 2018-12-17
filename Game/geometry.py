@@ -2,7 +2,9 @@ from numpy.ma import sqrt
 
 
 def get_distance(vertexA, vertexB):
-    return sqrt( (vertexA[0] - vertexB[0])**2 + (vertexA[1] - vertexB[1])**2)
+    x = (vertexA[0] - vertexB[0])**2
+    y = (vertexA[1] - vertexB[1])**2
+    return sqrt( x + y)
 
 def get_direction_vector(vertexA, vertexB):
     return (vertexB[0] - vertexA[0],vertexB[1] - vertexA[1])
