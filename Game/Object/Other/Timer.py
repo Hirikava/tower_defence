@@ -22,3 +22,5 @@ class Timer(ITimer, IGameActionHolder):
         else:
             return []
 
+    def reset(self):
+        self.elipsed_time = self.time

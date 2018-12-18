@@ -5,9 +5,9 @@ from Game.Action.Monster.RemoveMonsterFromTracker import RemoveMonsterFromTracke
 from Game.Object.Monster.BaseMonster import BaseMonster
 
 class TrackedMonster(BaseMonster, IGameActionHolder):
-    def __init__(self,cords,speed,track,hp):
-        BaseMonster.__init__(self,cords,hp,speed)
-        self.current_hp = hp
+    def __init__(self,cords,track,**stats):
+        BaseMonster.__init__(self,cords,**stats)
+        self.current_hp = self.hp
         self.track = track
         self.track_counter = 0
 

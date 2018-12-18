@@ -14,13 +14,17 @@ class TargetTower(BaseTower, IGameActionHolder):
         self.cooldown_timer = Timer(cooldown)
 
     def get_actions(self):
+        ret_actions = list()
+        ret_actions.append(UpdateTargetAction(self))
         if self.target == None:
-            return [SearchMonsterTargetAction(self),TimerAction(timer=self.cooldown_timer)]
-        elif self.cooldown_timer.elipsed_time == 0:
-            self.cooldown_timer.elipsed_time = self.cooldown_timer.time
-            return [UpdateTargetAction(self),SimpleAttackAction(self.target,120),TimerAction(self.cooldown_timer)] #AtackAction
-        else:
-            return [TimerAction(self.cooldown_timer)] #TimerAction
+            ret_actions.append(SearchMonsterTargetAction(self))
+        if self.cooldown_timer.elipsed_time != 0:
+            ret_actions.append(TimerAction(self.cooldown_timer))
+
+        if self.cooldown_timer.get_time() == 0 and self.target != None:
+            self.cooldown_timer.reset()
+            ret_actions.append(SimpleAttackAction(self.target,120)) #AtackAction
+        return ret_actions
 
 class SimpleAttackAction(IGameAction):
     def __init__(self,base_monster,dmg):

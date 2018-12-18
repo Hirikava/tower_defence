@@ -20,6 +20,9 @@ class GameSession(IGameActionHolder):
         settings = inject.instance(IGameSessionSettingsProvider)().get_settings()
         self.min_time_delay = int(settings['min_time_delay'])
 
+        #TEST
+        self.args[2].add(TargetTower((300,300),300,100))
+        self.args[2].add(TargetTower((600,300),300,100))
 
     def run(self):
         self.clock.tick()

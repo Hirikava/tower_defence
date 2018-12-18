@@ -10,3 +10,4 @@ class MoveAction(IGameAction):
             return True
         if self.__target__.move_to(self.__target__.track[self.__target__.track_counter],args[0]):
             self.__target__.track_counter += 1
+
