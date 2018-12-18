@@ -27,4 +27,4 @@ class SimpleAttackAction(IGameAction):
         self.__target__ = base_monster
         self.dmg = dmg
     def act(self,*args):
-        self.__target__.hp -= self.dmg
+        self.__target__.current_hp -= self.dmg

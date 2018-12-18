@@ -7,11 +7,12 @@ from Game.Object.Monster.BaseMonster import BaseMonster
 class TrackedMonster(BaseMonster, IGameActionHolder):
     def __init__(self,cords,speed,track,hp):
         BaseMonster.__init__(self,cords,hp,speed)
+        self.current_hp = hp
         self.track = track
         self.track_counter = 0
 
     def get_actions(self):
-        if self.hp <= 0:
+        if self.current_hp <= 0:
             return [RemoveMonsterFromTracker(self)]
         elif self.track_counter == len(self.track):
             return [RemoveMonsterFromTracker(self),ReduceLifeCounter()]

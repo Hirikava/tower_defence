@@ -3,6 +3,7 @@ class GameLoader():
         res = dict()
         with open(filename,'r',encoding='utf-8') as file:
             res["life_counter"] = int(file.readline())
+            res["gold"] = int(file.readline())
             spawner_tokens = file.readline().split(",")
             res["spawner_pos"] = (int(spawner_tokens[0]),int(spawner_tokens[1]))
             res["track"] = list()
