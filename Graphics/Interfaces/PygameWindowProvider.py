@@ -1,11 +1,13 @@
-from Graphics.IWindowProvider import IWindowProvider
+from Graphics.Interfaces.IWindowProvider import IWindowProvider
 from singleton_decorator import singleton
+from Settings.SettingsReader import SettingsReader
 import pygame
 
-from Settings.SettingsReader import SettingsReader
+def window_provider_config(binder):
+    binder.bind(IWindowProvider,PygameWindowProvider)
 
 @singleton
-class WindowProvider(IWindowProvider):
+class PygameWindowProvider(IWindowProvider):
     def __init__(self):
         settings = SettingsReader().read('graphics.ini')
         res_token = settings["resolution"].split(",")

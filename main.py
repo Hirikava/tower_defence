@@ -1,15 +1,17 @@
 from Graphics.DrawHpBar import DrawHpBar
-from Graphics.WindowProvider import WindowProvider
+from Graphics.Interfaces.IWindowProvider import IWindowProvider
+from Graphics.Manager.TextureManager import TextureManager
 from init import init
 from Game.GameSession import GameSession
 import pygame
+import inject
 
 
 init()
 pygame.init()
 window = pygame.display.set_mode((1200,900))
-monster_text = pygame.image.load("Assets\\monster.png")
-tower_text = pygame.image.load("Assets\\tower.png")
+monster_text = TextureManager().load_texture("Assets\\monster.png")
+tower_text = TextureManager().load_texture("Assets\\tower.png")
 game_session = GameSession("level1.td")
 
 while game_session.args[4].life > 0:
@@ -24,11 +26,12 @@ while game_session.args[4].life > 0:
     pygame.display.update()
     window.fill((0,0,0))
     for tower in game_session.args[2]:
-        WindowProvider().get_window().blit(tower_text,tower.get_cords())
-        pygame.draw.circle( WindowProvider().get_window(),(255,0,0),tower.get_cords(),tower.get_range(),1)
+        inject.instance(IWindowProvider)().get_window().blit(tower_text,tower.get_cords())
+        pygame.draw.circle( inject.instance(IWindowProvider)().get_window(),(255,0,0),tower.get_cords(),tower.get_range(),1)
     for monster in game_session.args[1]:
-        WindowProvider().get_window().blit(monster_text,monster.get_cords())
+        inject.instance(IWindowProvider)().get_window().blit(monster_text,monster.get_cords())
         DrawHpBar(monster).act()
+print("DEFEAT")
 
 pygame.quit()
 

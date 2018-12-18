@@ -20,12 +20,9 @@ class GameSession(IGameActionHolder):
         settings = inject.instance(IGameSessionSettingsProvider)().get_settings()
         self.min_time_delay = int(settings['min_time_delay'])
 
-        #TEST
-        self.args[2].add(TargetTower((100,300),300,300))
 
     def run(self):
         self.clock.tick()
-        print(self.args[0])
         for i in range(1,4):
             for action_holder in self.args[i]:
                 for action in action_holder.get_actions():
@@ -33,7 +30,6 @@ class GameSession(IGameActionHolder):
         self.clock.delay(self.min_time_delay)
         self.clock.tick()
         self.args[0] = self.clock.get_time()
-
 
     def __track_monster_spawn__(self,game_scenario):
         for spawn in game_scenario["spawn_monsters"]:
