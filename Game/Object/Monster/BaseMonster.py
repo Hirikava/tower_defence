@@ -4,7 +4,7 @@ from Game.Object.Infrastructer.BaseObject import BaseObject
 
 class BaseMonster(BaseObject):
     def __init__(self,cords,**kwargs):
-        BaseObject.__init__(self,cords)
+        BaseObject.__init__(self,cords,**kwargs)
         self.speed = kwargs["speed"]
         self.hp = kwargs["hp"]
 

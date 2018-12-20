@@ -1,6 +1,4 @@
 
-def settings_reader_config(binder):
-    binder.bind(ISettingsReader,SettingsReader)
 
 class ISettingsReader():
     def read(self,filename):

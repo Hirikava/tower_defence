@@ -2,14 +2,14 @@
 100
 -100,100
 210,133 355,130 368,103 377,490 737,492 735,123 1025,130 1023,692 591,686 579,852
-1000:monster
-2000:monster
-3000:monster
-4000:monster
-5000:monster
-6000:monster
-7000:monster
-8000:monster
-9000:monster
-10000:monster
-11000:monster
+1000:skeleton
+2000:skeleton
+3000:skeleton
+4000:skeleton
+5000:skeleton
+6000:skeleton
+7000:skeleton
+8000:skeleton
+9000:skeleton
+10000:skeleton
+11000:skeleton
