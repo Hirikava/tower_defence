@@ -13,3 +13,12 @@
 9000:skeleton
 10000:skeleton
 11000:skeleton
+12000:skeleton
+13000:skeleton
+14000:skeleton
+15000:skeleton
+16000:skeleton
+17000:skeleton
+18000:skeleton
+19000:skeleton
+20000:skeleton

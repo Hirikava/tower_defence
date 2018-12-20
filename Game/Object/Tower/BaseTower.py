@@ -9,9 +9,9 @@ class ITower():
 
 
 class BaseTower(BaseObject,ITower):
-    def __init__(self,cords,range):
-        BaseObject.__init__(self,cords)
-        self.range = range
+    def __init__(self,cords,**kwargs):
+        BaseObject.__init__(self,cords,**kwargs)
+        self.range = kwargs["range"]
 
     def get_range(self):
         return self.range
