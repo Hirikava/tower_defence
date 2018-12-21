@@ -1,4 +1,5 @@
-from Graphics.Object.Drawers.DrawAction import CreatureDrawAction, TowerDrawAction, ProjectileDrawAction
+from Graphics.Object.Drawers.DrawAction import CreatureDrawAction, TowerDrawAction, ProjectileDrawAction, \
+    DrawGoldAmount, DrawLifeAmount
 from Graphics.Object.Infrastructure.IGraphicsActionHolder import IGraphicsActionHolder
 
 
@@ -15,4 +16,7 @@ class GameObjectDrawer(IGraphicsActionHolder):
             actions.append(TowerDrawAction(target))
         for target in args[5]:
             actions.append(ProjectileDrawAction(target))
+        actions.append(DrawGoldAmount(self.game_session.gold))
+        actions.append(DrawLifeAmount(self.game_session.life))
+
         return actions

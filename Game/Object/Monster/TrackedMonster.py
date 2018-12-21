@@ -1,4 +1,5 @@
 from Game.Action.Infrastructer.IGameActionHolder import IGameActionHolder
+from Game.Action.Monster.GetSallaryAction import GetSallaryAction
 from Game.Action.Monster.MoveAction import MoveAction
 from Game.Action.Monster.ReduceLifeCounter import ReduceLifeCounter
 from Game.Action.Monster.RemoveMonsterFromTracker import RemoveMonsterFromTracker
@@ -13,7 +14,7 @@ class TrackedMonster(BaseMonster, IGameActionHolder):
 
     def get_actions(self):
         if self.current_hp <= 0:
-            return [RemoveMonsterFromTracker(self)]
+            return [RemoveMonsterFromTracker(self),GetSallaryAction(self)]
         elif self.track_counter == len(self.track):
             return [RemoveMonsterFromTracker(self),ReduceLifeCounter()]
         else:

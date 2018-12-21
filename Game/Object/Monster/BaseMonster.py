@@ -7,6 +7,8 @@ class BaseMonster(BaseObject):
         BaseObject.__init__(self,cords,**kwargs)
         self.speed = kwargs["speed"]
         self.hp = kwargs["hp"]
+        self.sallary = kwargs["sallary"]
+        self.armour = kwargs["armour"]
 
     def move_to(self,pos,time_span):
         vector = geometry.normalize_vector(geometry.get_direction_vector(self.cords,pos))

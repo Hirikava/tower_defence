@@ -15,4 +15,4 @@ class Target(IGameAction):
         self.__target__ = projectile
 
     def act(self,*args):
-        self.__target__.target_monster.current_hp -= self.__target__.dmg
+        self.__target__.target_monster.current_hp -= self.__target__.dmg * (1 - self.__target__.target_monster.armour/100)

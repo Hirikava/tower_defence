@@ -1,12 +1,12 @@
 10
-100
+1000
 -100,100
 210,133 355,130 368,103 377,490 737,492 735,123 1025,130 1023,692 591,686 579,852
 1000:skeleton
-2000:skeleton
+2000:armored_skeleton
 3000:skeleton
 4000:skeleton
-5000:skeleton
+5000:armored_skeleton
 6000:skeleton
 7000:skeleton
 8000:skeleton

@@ -22,8 +22,6 @@ class GameSession(IGameActionHolder):
         settings = inject.instance(IGameSessionSettingsProvider)().get_settings()
         self.min_time_delay = int(settings['min_time_delay'])
         self.event_run_range = [1,2,3,5]
-        #TEST
-        self.args[2].add(TowerFactory().get_instance("archery",(300,300)))
 
     def run(self):
         self.clock.tick()

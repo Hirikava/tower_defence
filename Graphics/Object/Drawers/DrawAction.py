@@ -24,6 +24,8 @@ class DrawHpBarAction(IGraphicsAction):#GraphicsActon
         pos = self.__target__.get_cords()
         pygame.draw.rect(args[0], (255,0,0), (pos[0] - offset[0], pos[1] - offset[1] - 10, 20, 10))
         hp_persentage = self.__target__.current_hp / self.__target__.hp
+        if hp_persentage < 0:
+            hp_persentage = 0
         pygame.draw.rect(args[0], (0,255,0), (pos[0] - offset[0], pos[1] - offset[1] - 10, 20 * hp_persentage,10))
 
 
@@ -56,5 +58,24 @@ class ProjectileDrawAction(IGraphicsAction):
         drawing_object_cords = (
         game_object_cords[0] - drawing_surface.get_width() / 2, game_object_cords[1] - drawing_surface.get_height() / 2)
         window.blit(drawing_surface, drawing_object_cords)
+
+class DrawGoldAmount(IGraphicsAction):
+    def __init__(self,gold):
+        self.__gold__ = gold
+
+    def act(self,*args):
+        window = args[0]
+        myfont = pygame.font.SysFont('Comic Sans MS', 30)
+        window.blit(myfont.render('gold: {0}'.format(self.__gold__),False,(255,242,0)),(0,0))
+
+class DrawLifeAmount(IGraphicsAction):
+    def __init__(self,life):
+        self.__life__ = life
+
+    def act(self,*args):
+        window = args[0]
+        myfont = pygame.font.SysFont('Comic Sans MS', 30)
+        surface = myfont.render('life: {0}'.format(self.__life__),False,(0,255,0))
+        window.blit(surface,(0,window.get_height() - surface.get_height()))
 
 
