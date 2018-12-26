@@ -76,6 +76,23 @@ class DrawLifeAmount(IGraphicsAction):
         window = args[0]
         myfont = pygame.font.SysFont('Comic Sans MS', 30)
         surface = myfont.render('life: {0}'.format(self.__life__),False,(0,255,0))
-        window.blit(surface,(0,window.get_height() - surface.get_height()))
+        window.blit(surface,(window.get_width() - surface.get_width(),window.get_height() - surface.get_height()))
 
+
+class DrawButtonAction(IGraphicsAction):
+    def __init__(self,button):
+        self.button = button
+
+    def act(self,*args):
+        window = args[0]
+        window.blit(get_drawing_instance(self.button.name),self.button.cords)
+
+class DrawObserverAction(IGraphicsAction):
+    def __init__(self,observer):
+        self.observer = observer
+
+    def act(self,*args):
+        window = args[0]
+        surface = self.observer.get_vidget()
+        window.blit(self.observer.get_vidget(), (window.get_width() - surface.get_width(),0))
 
