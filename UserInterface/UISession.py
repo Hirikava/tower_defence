@@ -11,6 +11,7 @@ from Settings.SettingsReader import SettingsReader
 from UserInterface.Button import Button
 from UserInterface.ObservVidget import ObservVidget
 from UserInterface.Actions.SummonTower import ButtonSummonTower
+from UserInterface.button_bestiariy import get_button
 
 
 class UISession():
@@ -23,6 +24,7 @@ class UISession():
         self.observer = ObservVidget()
 
         towers = SettingsReader().read(UITowerIni)["tower_set"].split(",")
+        special_buttons = SettingsReader().read(UITowerIni)["other"].split(",")
         window = inject.instance(IWindowProvider)().get_window()
         offset = 0
         for tower in towers:
@@ -30,6 +32,14 @@ class UISession():
             surface = get_drawing_instance(tower)
             self.args[0].add(Button(ButtonSummonTower(tower),(offset,window.get_height() - surface.get_height()),(surface.get_width(),surface.get_height()),tower))
             offset += surface.get_width()
+
+        for button in special_buttons:
+            button = button.replace("\n", "")
+            surface = get_drawing_instance(button)
+            self.args[0].add(Button(get_button(button)(), (offset, window.get_height() - surface.get_height()),
+                                    (surface.get_width(), surface.get_height()), button))
+            offset += surface.get_width()
+
 
 
     def run(self):

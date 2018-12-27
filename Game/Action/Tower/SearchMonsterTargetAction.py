@@ -8,5 +8,11 @@ class SearchMonsterTargetAction(IGameAction):
 
     def act(self,*args):
         for monster in args[1]:
-            if get_distance(self.__target__.get_cords(),monster.get_cords()) <= self.__target__.get_range():
+            correct_type = True
+            for type in monster.type:
+                if type in self.__target__.banned_types:
+                    correct_type = False
+
+            if get_distance(self.__target__.get_cords(),monster.get_cords()) <= self.__target__.get_range() and correct_type:
                 self.__target__.target = monster
+                return

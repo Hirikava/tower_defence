@@ -1,0 +1,25 @@
+grass1
+10
+1000
+-25,164
+25,164 386,163 400,360 641,358 656,176 659,169 924,174 923,579 676,593 664,994 938,996 947,826 1193,822 1200,1003 1582,1005
+1000:armored_skeleton
+2000:armored_skeleton
+3000:skeleton
+4000:skeleton
+5000:armored_skeleton
+6000:skeleton
+7000:skeleton
+8000:skeleton
+9000:armored_skeleton
+10000:skeleton
+11000:skeleton
+12000:skeleton
+13000:skeleton
+14000:skeleton
+15000:skeleton
+16000:skeleton
+17000:skeleton
+18000:skeleton
+19000:skeleton
+20000:skeleton

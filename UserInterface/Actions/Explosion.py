@@ -7,7 +7,7 @@ class ButtonExplousion(IUIAction):
         pass
 
     def act(self,*args):
-        args[1].next_click_action = Explousion(self.tower_name)
+        args[1].next_click_action = Explousion()
 
 
 class Explousion(IUIAction):

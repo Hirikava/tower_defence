@@ -17,6 +17,7 @@ class TargetTower(BaseTower, IGameActionHolder):
         self.target = None
         self.cooldown_timer = Timer(kwargs["cooldown"])
         self.projectile = kwargs["projectile"]
+        self.banned_types = kwargs["banned_types"]
 
     def get_actions(self):
         ret_actions = list()
