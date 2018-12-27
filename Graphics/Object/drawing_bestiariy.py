@@ -10,7 +10,7 @@ bestiariy = {"skeleton" : "Assets/skeleton.png",
              "canon" : "Assets/canon.png",
              "canon*" : "Assets/canon1.png",
              "canon**" : "Assets/canon2.png",
-             }
+             "grass1" : "Assets/Grass1.png"}
 
 def get_drawing_instance(name):
     return TextureManager().load_texture(bestiariy[name])

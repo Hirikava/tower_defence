@@ -6,7 +6,7 @@ bestiariy = {"archery" : (TargetTower,{"range": 300,"cooldown" : 1000, "name":"a
              "canon" : (TargetTower,{"range": 200,"cooldown" : 2000, "name":"canon" , "projectile" : "yadro", "upgrade_price" : 200 , "price" : 100}),
              "canon*" : (TargetTower,{"range": 200,"cooldown" : 1500, "name":"canon*" , "projectile" : "yadro*", "upgrade_price" : 400}),
              "canon**" : (TargetTower,{"range": 200,"cooldown" : 1000, "name":"canon**" , "projectile" : "yadro**", "upgrade_price" : "MaxLvl"}),
-             }
+             "explousion" : {"price":100,"dmg":200,"range":400}}
 
 def get_tower_stats(name):
     return bestiariy[name]

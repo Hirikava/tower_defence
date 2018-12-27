@@ -1,5 +1,5 @@
 from Graphics.Object.Drawers.DrawAction import CreatureDrawAction, TowerDrawAction, ProjectileDrawAction, \
-    DrawGoldAmount, DrawLifeAmount
+    DrawGoldAmount, DrawLifeAmount, DrawMapAction
 from Graphics.Object.Infrastructure.IGraphicsActionHolder import IGraphicsActionHolder
 
 
@@ -10,6 +10,7 @@ class GameObjectDrawer(IGraphicsActionHolder):
     def get_actions(self):
         args = self.game_session.get_args()
         actions = []
+        actions.append(DrawMapAction(self.game_session.map))
         for target in args[1]:
             actions.append(CreatureDrawAction(target))
         for target in args[2]:

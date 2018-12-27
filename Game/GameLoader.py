@@ -2,6 +2,7 @@ class GameLoader():
     def load(self,filename):
         res = dict()
         with open(filename,'r',encoding='utf-8') as file:
+            res["map_name"] = file.readline().replace("\n","")
             res["life_counter"] = int(file.readline())
             res["gold"] = int(file.readline())
             spawner_tokens = file.readline().split(",")

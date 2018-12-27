@@ -1,4 +1,5 @@
 from Game.Action.Tower.ConstructTowerAction import ConstructTowerAction
+from Graphics.View.CamerView import CameraView
 from UserInterface.IUIAction import IUIAction
 
 
@@ -18,4 +19,5 @@ class SummmonTower(IUIAction):
         self.name = name
 
     def act(self,*args):
-        args[2].args[3].add(ConstructTowerAction(args[1].mous_pos,self.name))
+        camera = CameraView().get_view_point()
+        args[2].args[3].add(ConstructTowerAction((args[1].mous_pos[0] + camera[0],args[1].mous_pos[1] + camera[1]),self.name))

@@ -4,7 +4,7 @@ import pygame
 from Graphics.Interfaces.IWindowProvider import IWindowProvider
 from Graphics.Object.Drawers.GameObjectDrawer import GameObjectDrawer
 from Graphics.Object.Drawers.UIObjectDrawer import UIObjectDrawer
-from UserInterface.ObservVidget import ObservVidget
+from Graphics.View.CamerView import CameraView
 
 
 class GraphicsSession():
